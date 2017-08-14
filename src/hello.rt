@@ -1,11 +1,43 @@
 <section>
 
-<h2>ShaiK likes to over-react</h2>
+    1.
+    <h2>ShaiK likes to over-react</h2>
 
-<!-- Create a "React Templates" project that displays a form having a text input field,
-and displays the message "{name} makes ShaiK over-react" , where {name} is the value provided in the input field.-->
+    2.
+    <p>Create a "React Templates" project that displays a form having a text input field,
+        and displays the message "name makes ShaiK over-react" , where name is the value provided in
+        the input field.</p>
     <label for="nameInput">Who:
-        <input type="text" id="nameInput" name="nameInput" onChange="{(ev)=>this.getName(ev)}"/>
+        <input type="text"
+               id="nameInput"
+               name="nameInput"
+               onChange="{(ev)=>this.getName(ev)}" />
     </label>
     <h2 id="nameOutput">{this.state.name} makes ShaiK over-react.</h2>
+
+    3. <p>Enhance the previous project so that an initial value for the name field can be
+    provided via the URL.</p>
+
+    4.
+    <p> Create a panel that has two numeric input fields: lat and long.
+
+        The panel should also display the text: "ShaiK is over-reacting at (long,lat)", where long
+        and lat are the values provided in the form.
+
+        This needs to be implemented in such a way that both long and lat are properties of a
+        location object in the component state, and by creating a “linkState” function that
+        creates a "two-way-data-binding" like React LinkState used to.</p>
+
+    <div style="border: 2px solid black; width: 100%;">
+        <div><label for="">lat <input name="lat"
+                                      id="lat"
+                                      type="text"
+                                      onChange="{(ev)=>this.changeLocation(ev,'lat')}"></label></div>
+        <div><label for="">long<input name="long"
+                                      id="long"
+                                      type="text"
+                                      onChange="{(ev)=>this.changeLocation(ev,'long')}"></label></div>
+        <div>ShaiK is over-reacting at (long: {this.state.location.long} , lat:
+            {this.state.location.lat})</div>
+    </div>
 </section>
