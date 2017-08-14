@@ -3,17 +3,19 @@ define(['react', 'lodash', './hello.rt'], function (React, _, template) {
 
     return React.createClass({
         getInitialState: function(){
-            let queryParamDefaultName = {};
+            let initialState = {};
             const defLoc = {lat:0,long:0};
             if(window.location.search !== ''){
                 // console.log(window.location.search);
-                queryParamDefaultName = {name: window.location.search.match(/name=(.*)/).pop(),location:defLoc};
+                initialState = {name: window.location.search.match(/name=(.*)/).pop(),location:defLoc};
             } else {
-                queryParamDefaultName = {name: 'Bobby Dole',location:defLoc};
+                initialState = {name: 'Bobby Dole',location:defLoc};
             }
 
-            queryParamDefaultName.inputs = ['input'];
-            return queryParamDefaultName;
+            initialState.inputs = ['input'];
+            initialState.countryCity = {ChooseCountry: [], USA : ['san francisco','miami','nyc'], Israel : ['Tel' +
+            ' Aviv','B7','Jeru']};
+            return initialState;
         },
         displayName: 'Hello',
         getName: function(ev){
@@ -42,9 +44,7 @@ define(['react', 'lodash', './hello.rt'], function (React, _, template) {
         changeCountry: function(ev){
             let newCountry = ev.target.value;
             // console.log(newCountry);
-            let USA = ['san francisco','miami','nyc'];
-            let Israel = ['Tel Aviv','B7','Jeru'];
-            let newState = Object.assign({},this.state,{currentCountry: newCountry},{Israel: Israel,USA: USA});
+            let newState = Object.assign({},this.state,{currentCountry: newCountry});
             console.dir('ns',newState);
             this.setState(newState);
         },

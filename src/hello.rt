@@ -74,14 +74,14 @@
         <select name="country"
                 id="country"
                 onChange="{(ev)=>this.changeCountry(ev)}">
-            <option>USA</option>
-            <option>Israel</option>
+            <option rt-repeat="country in Object.keys(this.state.countryCity)">{country}</option>
         </select>
 
         <label for="city">city </label>
         <select name="city"
                 id="city">
-            <option rt-repeat="city in this.state[this.state.currentCountry]">{city}</option>
+            <option rt-repeat="city in this.state.countryCity[this.state.currentCountry]">{city
+                }</option>
         </select>
         <button type="submit">Submit</button>
     </form>
