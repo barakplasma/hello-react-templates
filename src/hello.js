@@ -11,6 +11,8 @@ define(['react', 'lodash', './hello.rt'], function (React, _, template) {
             } else {
                 queryParamDefaultName = {name: 'Bobby Dole',location:defLoc};
             }
+
+            queryParamDefaultName.inputs = ['input'];
             return queryParamDefaultName;
         },
         displayName: 'Hello',
@@ -26,6 +28,17 @@ define(['react', 'lodash', './hello.rt'], function (React, _, template) {
             this.setState({name: this.state.name,location:{[latOrLong]: newCoordinate,[otherCoord]:this.state.location[otherCoord]}});
             // console.log(this.state.location.lat, this.state.location.long);
         },
+        changeInputs:function(addOrRemoveInput){
+            let newInputs = this.state.inputs;
+            if(addOrRemoveInput>0){
+                newInputs.push('input');
+            }
+            if(addOrRemoveInput<0){
+                newInputs.shift();
+            }
+            this.setState({name: this.state.name,location: this.state.location,inputs:newInputs})
+        },
+        printYourself: (ev)=>{console.log(ev.target.value)},
         render: template
     });
 });

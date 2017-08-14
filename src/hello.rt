@@ -32,12 +32,31 @@
         <div><label for="">lat <input name="lat"
                                       id="lat"
                                       type="text"
-                                      onChange="{(ev)=>this.changeLocation(ev,'lat')}"></label></div>
+                                      onChange="{(ev)=>this.changeLocation(ev,'lat')}"></label>
+        </div>
         <div><label for="">long<input name="long"
                                       id="long"
                                       type="text"
-                                      onChange="{(ev)=>this.changeLocation(ev,'long')}"></label></div>
+                                      onChange="{(ev)=>this.changeLocation(ev,'long')}"></label>
+        </div>
         <div>ShaiK is over-reacting at (long: {this.state.location.long} , lat:
-            {this.state.location.lat})</div>
+            {this.state.location.lat})
+        </div>
+    </div>
+
+    5.
+
+    <p>Create a panel that contains a form. Adding fields to the form should not require changing
+        code in the panel (i.e., you can add fields dynamically in the rendered template). The value
+        of the form fields should be output to the Dev Console whenever that field value changes
+        (just that field, not all the fields every time.)</p>
+    <div>
+        <button onClick="{()=>this.changeInputs(+1)}"> + </button>
+        <button onClick="{()=>this.changeInputs(-1)}"> - </button>
+        <ul>
+            <li key="{_.uniqueId()}"
+                rt-repeat="input in this.state.inputs"><input type="text"
+                                                              onChange="{(ev)=>this.printYourself(ev)}"/></li>
+        </ul>
     </div>
 </section>
