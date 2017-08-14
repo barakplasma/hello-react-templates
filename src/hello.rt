@@ -2,10 +2,10 @@
 
 <h2>ShaiK likes to over-react</h2>
 
-<!-- todo Create a "React Templates" project that displays a form having a text input field,
+<!-- Create a "React Templates" project that displays a form having a text input field,
 and displays the message "{name} makes ShaiK over-react" , where {name} is the value provided in the input field.-->
     <label for="nameInput">Who:
         <input type="text" id="nameInput" name="nameInput" onChange="{(ev)=>this.getName(ev)}"/>
     </label>
-    <h2 id="nameOutput">{this.state.name} likes to over-react.</h2>
+    <h2 id="nameOutput">{this.state.name} makes ShaiK over-react.</h2>
 </section>
