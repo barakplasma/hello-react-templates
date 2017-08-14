@@ -39,6 +39,15 @@ define(['react', 'lodash', './hello.rt'], function (React, _, template) {
             this.setState({name: this.state.name,location: this.state.location,inputs:newInputs})
         },
         printYourself: (ev)=>{console.log(ev.target.value)},
+        changeCountry: function(ev){
+            let newCountry = ev.target.value;
+            // console.log(newCountry);
+            let USA = ['san francisco','miami','nyc'];
+            let Israel = ['Tel Aviv','B7','Jeru'];
+            let newState = Object.assign({},this.state,{currentCountry: newCountry},{Israel: Israel,USA: USA});
+            console.dir('ns',newState);
+            this.setState(newState);
+        },
         render: template
     });
 });

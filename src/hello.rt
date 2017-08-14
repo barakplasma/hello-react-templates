@@ -51,12 +51,39 @@
         of the form fields should be output to the Dev Console whenever that field value changes
         (just that field, not all the fields every time.)</p>
     <div>
-        <button onClick="{()=>this.changeInputs(+1)}"> + </button>
-        <button onClick="{()=>this.changeInputs(-1)}"> - </button>
+        <button onClick="{()=>this.changeInputs(+1)}"> +</button>
+        <button onClick="{()=>this.changeInputs(-1)}"> -</button>
         <ul>
             <li key="{_.uniqueId()}"
                 rt-repeat="input in this.state.inputs"><input type="text"
-                                                              onChange="{(ev)=>this.printYourself(ev)}"/></li>
+                                                              onChange="{(ev)=>this.printYourself(ev)}" />
+            </li>
         </ul>
     </div>
+
+    6.
+    <p>Create a panel for selecting "country" and "city", where the available "cities" are
+        dependent on the "selected" country. (Country/city information can be hard-coded). Initially
+        the
+        country is not specified, and the city list is empty. A Submit button must only be enabled
+        when
+        both country and city are selected, and disabled otherwise.</p>
+
+    <form action="">
+        <label for="country">Country </label>
+        <select name="country"
+                id="country"
+                onChange="{(ev)=>this.changeCountry(ev)}">
+            <option>USA</option>
+            <option>Israel</option>
+        </select>
+
+        <label for="city">city </label>
+        <select name="city"
+                id="city">
+            <option rt-repeat="city in this.state[this.state.currentCountry]">{city}</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
 </section>
